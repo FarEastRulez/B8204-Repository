@@ -1,9 +1,8 @@
-#include "stdafx.h"
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
 
-class queue
+class Queue
 {
 private:
 	struct queue_object
@@ -17,15 +16,9 @@ private:
 	int size;
 
 public:
-	queue(int x) //создание единичной очереди
+	queue() //создание пустой очереди
 	{
-		head=new(queue_object);
-		tail=head;
-		head->value=x;
-		head->address=0; //следующего элемента пока нет
-		//Так как head - указатель, на некий объект
-		//то использую -> для указания на поле объекта.
-		size=1;
+		size=0;
 	}
 
 	int queue_size()
@@ -35,34 +28,49 @@ public:
 
 	void push(int elem) //добавление
 	{
-		size++;
-		queue_object *newElem=new(queue_object); //новый элемент очереди
-		newElem->address=NULL; //новый элемент ни на что не ссылается
-		newElem->value=elem;
-		tail->address=newElem; //хвост ссылаю на адрес нового элемента
-		tail=newElem; //теперь хвост -новый элемент
+		if (size==0) {
+			head=new(queue_object);
+			tail=head;
+			head->value=elem;
+			head->address=0; //следующего элемента пока нет
+			//Так как head - указатель, на некий объект
+			//то использую -> для указания на поле объекта.
+			size=1;
+		}
+		else {
+			size++;
+			queue_object *newElem=new(queue_object); //новый элемент очереди
+			newElem->address=NULL; //новый элемент ни на что не ссылается
+			newElem->value=elem;
+			tail->address=newElem; //хвост ссылаю на адрес нового элемента
+			tail=newElem; //теперь хвост -новый элемент
+		}
 	}
 
-	void pop(int *delAdress)
+	int pop()
 	{
+
 		if(size == 0)
 		{
 			cout<<"Epmty queue! I can't delete!"<<endl;
+			return 0;
 		}
 		else 
 		{
+			int delElem;
 			queue_object *newElem=head;
-			*delAdress=head->value;
+			delElem=head->value;
 			head=head->address;
 			delete newElem;
 			size--;	
+			return delElem;
 		}
 
 	}
 
 	void print() //печать очереди на экран
 	{
-		queue_object *newElem=new(queue_object);
+		queue_object *newElem; //=new(queue_object)
 		newElem=head;
 		int i=0;
 		do {
