@@ -3,14 +3,10 @@
 #include "CClass.h"
 using namespace std;
 
-
-
 int main()
 {
 	Queue a;
 	int b;
-	cout<<"Inin an empty queue"<<endl;
-	a.queue();
 	cout<<"Add some New elements"<<endl;
 	for (int i=1; i<10; i++){
 		a.push(i);
