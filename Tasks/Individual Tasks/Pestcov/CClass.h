@@ -29,7 +29,7 @@ public:
 	void push(int elem) //добавление
 	{
 		if (size==0) {
-			head=new(queue_object);
+			head=new queue_object;
 			tail=head;
 			head->value=elem;
 			head->address=0; //следующего элемента пока нет
@@ -39,7 +39,7 @@ public:
 		}
 		else {
 			size++;
-			queue_object *newElem=new(queue_object); //новый элемент очереди
+			queue_object *newElem=new queue_object; //новый элемент очереди
 			newElem->address=NULL; //новый элемент ни на что не ссылается
 			newElem->value=elem;
 			tail->address=newElem; //хвост ссылаю на адрес нового элемента
