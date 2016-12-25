@@ -14,9 +14,11 @@ private:
 	queue_object *head; //голова
 	queue_object *tail; //хвост
 	int size;
+	const 
+		int EMPTY_QUEUE=-1;
 
 public:
-	queue() //создание пустой очереди
+	Queue() //создание пустой очереди
 	{
 		size=0;
 	}
@@ -52,8 +54,7 @@ public:
 
 		if(size == 0)
 		{
-			cout<<"Epmty queue! I can't delete!"<<endl;
-			return 0;
+			return EMPTY_QUEUE;
 		}
 		else 
 		{
