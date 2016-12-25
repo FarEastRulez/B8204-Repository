@@ -1,5 +1,7 @@
-#ifndef __CCLASS_H__
-#define __CCLASS_H__
+#include "stdafx.h"
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
 
 class queue
 {
@@ -72,5 +74,3 @@ public:
 	}
 
 };
-
-#endif // __CCLASS_H__
