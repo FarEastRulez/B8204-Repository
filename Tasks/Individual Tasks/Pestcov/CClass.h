@@ -14,8 +14,6 @@ private:
 	queue_object *head; //голова
 	queue_object *tail; //хвост
 	int size;
-	const 
-		int EMPTY_QUEUE=-1;
 
 public:
 	Queue() //создание пустой очереди
@@ -34,7 +32,7 @@ public:
 			head=new queue_object;
 			tail=head;
 			head->value=elem;
-			head->address=0; //следующего элемента пока нет
+			head->address=NULL; //следующего элемента пока нет
 			//Так как head - указатель, на некий объект
 			//то использую -> для указания на поле объекта.
 			size=1;
@@ -71,7 +69,7 @@ public:
 
 	void print() //печать очереди на экран
 	{
-		queue_object *newElem; //=new(queue_object)
+		queue_object *newElem;
 		newElem=head;
 		int i=0;
 		do {
@@ -81,5 +79,7 @@ public:
 		} while (i<size);
 		cout<<"\n"<<endl;
 	}
+	
+	const int EMPTY_QUEUE=-1;
 
 };
