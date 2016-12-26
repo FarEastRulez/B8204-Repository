@@ -1,18 +1,7 @@
-// SAKOD.cpp: определяет точку входа для консольного приложения.
-//
-
 #include "stdafx.h"
 #include <iostream>
+#include "Header.h"
 using namespace std;
-
-struct Vector
-{
-	int increase; // увеличение масс
-	int size; // размер масс
-	int currentSize;// колич эл.
-	unsigned int *v;// указ. на масс
-	int startPos;// поз. головы
-};
 
 void expansion (int el, Vector& vector)
 {
@@ -143,31 +132,4 @@ ostream& operator<<(ostream& cout, Vector& vector)
 	}
 	cout << endl;
 	return cout;
-}
-
-int main() //Очередь
-{
-	setlocale(LC_ALL, "Russian");
-
-	Vector vector;
-	create(vector,2,5);
-	Vector vector2;
-	create(vector2,2,5);
-
-	push(1, vector);
-	cout << vector;
-	push(2, vector);
-	cout << vector;
-	push(3, vector);
-	cout << vector;
-	cout << endl;
-
-	cout << pop(vector) <<endl;
-	cout << pop(vector) <<endl;
-	cout << pop(vector) <<endl;
-	cout << pop(vector) <<endl;
-
-	delete[]vector.v;
-	system("pause");
-	return 0;
 }

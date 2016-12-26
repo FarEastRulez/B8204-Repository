@@ -26,9 +26,8 @@ public :
 		}
 		tmp[sizeA-1] = a;
 		delete[] data;
-		data = new int [sizeA];
-		memcpy(data,tmp,sizeof (int) * sizeA);
-		delete[] tmp;
+		data = tmp;
+		
 		
 	}
 
@@ -41,12 +40,14 @@ public :
 		}
 		else 
 		{
+			int head = data[0];
 			sizeA--;
 			data++;
+			return head;
 		}
-
+     
 	}
-
+	
 };
 
  ostream& operator<<(ostream& cout,queue& queue )
@@ -62,16 +63,20 @@ public :
 int main()
 {
 	queue q1;
-	int x =6;
-	q1.push(x);
+	int x ;
+	
+	for (int i=0;i<25;++i)
+	{
+    q1.push(i);
 	cout<<q1;
 	cout<<endl;
-	q1.push(x);
-	cout<<q1;
-	cout<<endl;
+	}
+	for (int i=0;i<50;++i)
+	{
 	q1.pop();
 	cout<<q1;
 	cout<<endl;
+	}
 	system ("pause");
 
 }
