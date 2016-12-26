@@ -67,3 +67,12 @@ void printDekSize(dekInfo dInf) {
 	cout << "\n" << dInf.size;
 	cout << "\n";
 }
+void printDek(dekInfo dInf) {
+	cout << "\n";
+	while (dInf.head != NULL) {
+		cout << dInf.head->value << " ";
+		dInf.head = dInf.head->prev;
+	}
+	cout << "\n";
+	system("pause");
+}

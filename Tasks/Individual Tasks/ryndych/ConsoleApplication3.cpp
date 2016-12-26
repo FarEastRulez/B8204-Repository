@@ -12,7 +12,7 @@ int main()
 	int insVal;
 	bool close = true;
 	while (close) {
-		cout << "choose operation \n 1)insert el. left \n 2)insert el. right \n 3)delete el. left \n 4)delete el. right \n 5)output deque size \n 6)close \n";
+		cout << "choose operation \n 1)insert el. left \n 2)insert el. right \n 3)delete el. left \n 4)delete el. right \n 5)output deque size \n 6)print all deq \n 7)close \n";
 		cin >> caseD;
 		switch (caseD)
 		{
@@ -28,7 +28,9 @@ int main()
 			break;
 		case 5: printDekSize(dequeInfo);
 			break;
-		case 6: close = false;
+		case 6: printDek(dequeInfo);
+			break;
+		case 7: close = false;
 			break;
 		}
 	}

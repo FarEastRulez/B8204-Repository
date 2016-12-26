@@ -17,3 +17,4 @@ void RPush(dekInfo &dInf, int insVal);
 int lPop(dekInfo &dInf);
 int RPop(dekInfo &dInf);
 void printDekSize(dekInfo dInf);
+void printDek(dekInfo dInf);
